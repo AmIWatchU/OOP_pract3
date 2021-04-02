@@ -13,8 +13,8 @@ namespace prak3_oop_winform
 {
     public partial class Form1 : Form
     {
-        int N = 49;
-        int k = 0;
+        int B = 49;
+        int b = 0;
 
         public Form1()
         {
@@ -39,18 +39,18 @@ namespace prak3_oop_winform
 
             for (int i = 0; i < 50; i++)
             {
-                chart1.Series[0].Points.AddXY(i, Math.Sin(i));
+                chart1.Series[0].Points.AddXY(i, Math.Cos(i));
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            N++;
-            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(0, N);
+            B++;
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(0, B);
             chart1.Series[0].Points.RemoveAt(0);
-            chart1.Series[0].Points.AddXY(N, Math.Sin(N));
-            chart1.ChartAreas[0].AxisX.Minimum = N - 50;
-            chart1.ChartAreas[0].AxisX.Maximum = N;
+            chart1.Series[0].Points.AddXY(B, Math.Cos(B));
+            chart1.ChartAreas[0].AxisX.Minimum = B - 50;
+            chart1.ChartAreas[0].AxisX.Maximum = B;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,24 +74,24 @@ namespace prak3_oop_winform
 
         private void chart2_Click(object sender, EventArgs e)
         {
-            if (k == 0)
+            if (b == 0)
             {
-                chart2.Series[0].Points.AddXY(k, 3);
-                chart2.Series[0].Points[k].LegendText = "Відмінно";
-            } if (k == 1)
+                chart2.Series[0].Points.AddXY(b, 3);
+                chart2.Series[0].Points[b].LegendText = "Awesome";
+            } if (b == 1)
             {
-                chart2.Series[0].Points.AddXY(k, 10);
-                chart2.Series[0].Points[k].LegendText = "Добре";
-            } if (k == 2)
+                chart2.Series[0].Points.AddXY(b, 10);
+                chart2.Series[0].Points[b].LegendText = "Good";
+            } if (b == 2)
             {
-                chart2.Series[0].Points.AddXY(k, 5);
-                chart2.Series[0].Points[k].LegendText = "Задовільно";
-            } if (k == 3)
+                chart2.Series[0].Points.AddXY(b, 5);
+                chart2.Series[0].Points[b].LegendText = "Normal";
+            } if (b == 3)
             {
-                chart2.Series[0].Points.AddXY(k, 2);
-                chart2.Series[0].Points[k].LegendText = "Погано";
+                chart2.Series[0].Points.AddXY(b, 2);
+                chart2.Series[0].Points[b].LegendText = "Bad";
             }
-            k++;
+            b++;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,6 +121,11 @@ namespace prak3_oop_winform
                 }
                 streamWriter.Close();
             }
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
